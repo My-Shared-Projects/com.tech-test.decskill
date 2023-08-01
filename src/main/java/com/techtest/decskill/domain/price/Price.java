@@ -2,11 +2,13 @@ package com.techtest.decskill.domain.price;
 
 import com.techtest.decskill.domain.brand.Brand;
 import com.techtest.decskill.domain.product.Product;
+import lombok.Builder;
 import lombok.Getter;
 
 import java.time.LocalDateTime;
 
 @Getter
+@Builder
 public class Price {
     private Long priceList;
     private Brand brand;

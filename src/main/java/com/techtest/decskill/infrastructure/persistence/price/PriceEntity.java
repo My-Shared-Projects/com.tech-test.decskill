@@ -5,11 +5,13 @@ import com.techtest.decskill.infrastructure.persistence.brand.BrandEntity;
 import com.techtest.decskill.infrastructure.persistence.product.ProductEntity;
 import jakarta.persistence.*;
 import lombok.Builder;
+import lombok.Getter;
 
 import java.time.LocalDateTime;
 
 @Entity(name = "price")
 @Builder
+@Getter
 public class PriceEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -26,16 +28,16 @@ public class PriceEntity {
     private Double price;
     private String curr;
 
-    public static PriceEntity fromAggregate(Price price) {
-        return PriceEntity.builder()
-                .priceList(price.getPriceList())
-                .brand(BrandEntity.fromAggregate(price.getBrand()))
-                .startDate(price.getStartDate())
-                .endDate(price.getEndDate())
-                .product(ProductEntity.fromAggregate(price.getProduct()))
-                .priority(price.getPriority())
-                .price(price.getPrice())
-                .curr(price.getCurr())
+    public static Price toAggregate(PriceEntity priceEntity) {
+        return Price.builder()
+                .priceList(priceEntity.getPriceList())
+                .brand(BrandEntity.toAggregate(priceEntity.getBrand()))
+                .startDate(priceEntity.getStartDate())
+                .endDate(priceEntity.getEndDate())
+                .product(ProductEntity.toAggregate(priceEntity.getProduct()))
+                .priority(priceEntity.getPriority())
+                .price(priceEntity.getPrice())
+                .curr(priceEntity.getCurr())
                 .build();
     }
 }

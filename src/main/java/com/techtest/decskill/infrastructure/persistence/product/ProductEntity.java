@@ -6,9 +6,11 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import lombok.Builder;
+import lombok.Getter;
 
 @Entity(name = "product")
 @Builder
+@Getter
 public class ProductEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -18,13 +20,13 @@ public class ProductEntity {
     private String barcode;
     private boolean isActive;
 
-    public static ProductEntity fromAggregate(Product product) {
-        return ProductEntity.builder()
-                .id(product.getId())
-                .name(product.getName())
-                .description(product.getDescription())
-                .barcode(product.getBarcode())
-                .isActive(product.isActive())
+    public static Product toAggregate(ProductEntity productEntity) {
+        return Product.builder()
+                .id(productEntity.getId())
+                .name(productEntity.getName())
+                .description(productEntity.getDescription())
+                .barcode(productEntity.getBarcode())
+                .isActive(productEntity.isActive())
                 .build();
     }
 }
