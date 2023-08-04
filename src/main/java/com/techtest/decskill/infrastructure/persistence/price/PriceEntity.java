@@ -4,14 +4,18 @@ import com.techtest.decskill.domain.price.Price;
 import com.techtest.decskill.infrastructure.persistence.brand.BrandEntity;
 import com.techtest.decskill.infrastructure.persistence.product.ProductEntity;
 import jakarta.persistence.*;
+import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 
 import java.time.LocalDateTime;
 
 @Entity(name = "price")
 @Builder
 @Getter
+@NoArgsConstructor
+@AllArgsConstructor
 public class PriceEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

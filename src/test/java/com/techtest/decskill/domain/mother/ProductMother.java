@@ -12,4 +12,10 @@ public class ProductMother {
                 .isActive(PrimitiveMother.getRandomBoolean())
                 .build();
     }
+
+    public static Product getRandomFromId(long productId) {
+        Product product = getRandom();
+        product.setId(productId);
+        return product;
+    }
 }

@@ -1,4 +1,0 @@
-- PriceList debería llamarse id
-- Brand debería ser activable
-- Currency debería ser una entidad en sí misma activable y con información de los diferentes iso (isoCode e isoNumber)
-- Los .env son prescindibles pero se utilizan para poder dockerizar la aplicación

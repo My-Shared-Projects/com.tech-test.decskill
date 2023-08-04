@@ -2,12 +2,14 @@ package com.techtest.decskill.infrastructure.rest.dto;
 
 import com.techtest.decskill.domain.price.Price;
 import lombok.Builder;
+import lombok.Getter;
 import lombok.Setter;
 
 import java.time.LocalDateTime;
 
 @Builder
 @Setter
+@Getter
 public class PriceDto {
     private Long priceList;
     private Long productId;
