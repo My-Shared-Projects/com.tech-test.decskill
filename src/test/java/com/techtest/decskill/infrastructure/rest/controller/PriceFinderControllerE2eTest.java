@@ -11,8 +11,6 @@ import com.techtest.decskill.infrastructure.persistence.product.JpaProductReposi
 import com.techtest.decskill.infrastructure.persistence.product.ProductEntity;
 import com.techtest.decskill.infrastructure.persistence.product.ProductEntityMother;
 import com.techtest.decskill.infrastructure.rest.dto.PriceDto;
-import com.techtest.decskill.infrastructure.rest.mother.PriceDtoMother;
-import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -37,15 +35,8 @@ public class PriceFinderControllerE2eTest {
     @Autowired
     private JpaPriceRepository jpaPriceRepository;
 
-    @AfterEach
-    public void cleanRepositories() {
-        jpaPriceRepository.deleteAll();
-        jpaProductRepository.deleteAll();
-        jpaBrandRepository.deleteAll();
-    }
-
     @Test
-    public void getPrice_returnsOkStatusCode_whenPriceNotFound() {
+    public void getPrice_returnsOkStatusCode_whenPriceIsFound() {
         BrandEntity brand = jpaBrandRepository.saveAndFlush(BrandEntityMother.getRandom());
 
         ProductEntity product = jpaProductRepository.saveAndFlush(ProductEntityMother.getRandom());
