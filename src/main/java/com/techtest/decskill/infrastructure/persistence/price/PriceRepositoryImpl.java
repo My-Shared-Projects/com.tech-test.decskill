@@ -13,6 +13,7 @@ import java.time.LocalDateTime;
 public class PriceRepositoryImpl implements PriceRepository {
 
     private final JpaPriceRepository priceRepository;
+
     @Override
     public Price findOne(Long brandId, Long productId, LocalDateTime date) throws PriceNotFoundException {
         PriceEntity foundEntity = this.priceRepository.findOneByBrandIdAndProductIdAndDate(brandId, productId, date);

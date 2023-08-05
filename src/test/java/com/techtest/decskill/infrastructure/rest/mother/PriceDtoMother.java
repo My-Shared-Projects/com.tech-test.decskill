@@ -10,6 +10,7 @@ public class PriceDtoMother {
     public static PriceDto getRandom() {
         return getRandom(PrimitiveMother.getRandomLocalDateTime());
     }
+
     public static PriceDto getRandom(LocalDateTime date) {
         return PriceDto.fromAggregate(PriceMother.getRandom(date));
     }

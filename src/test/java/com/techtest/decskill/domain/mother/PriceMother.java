@@ -8,9 +8,11 @@ public class PriceMother {
     public static Price getRandom() {
         return getRandom(PrimitiveMother.getRandomLocalDateTime());
     }
+
     public static Price getRandom(LocalDateTime date) {
         return getRandom(PrimitiveMother.getRandomLong(), PrimitiveMother.getRandomLong(), date);
     }
+
     public static Price getRandom(long brandId, long productId, LocalDateTime date) {
         LocalDateTime startDate = PrimitiveMother.getRandomLocalDateTime(PrimitiveMother.DEFAULT_LOWER_DATE, date);
         LocalDateTime endDate = PrimitiveMother.getRandomLocalDateTime(date, PrimitiveMother.DEFAULT_UPPER_DATE);

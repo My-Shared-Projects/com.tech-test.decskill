@@ -20,6 +20,7 @@ public class PriceEntityMother {
                 .curr(PrimitiveMother.getRandomString())
                 .build();
     }
+
     public static PriceEntity getRandom(long brandId, long productId, LocalDateTime date) {
         LocalDateTime startDate = PrimitiveMother.getRandomLocalDateTime(PrimitiveMother.DEFAULT_LOWER_DATE, date);
         LocalDateTime endDate = PrimitiveMother.getRandomLocalDateTime(date, PrimitiveMother.DEFAULT_UPPER_DATE);

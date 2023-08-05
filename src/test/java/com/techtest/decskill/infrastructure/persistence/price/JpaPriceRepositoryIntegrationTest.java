@@ -7,7 +7,6 @@ import com.techtest.decskill.infrastructure.persistence.brand.BrandEntityMother;
 import com.techtest.decskill.infrastructure.persistence.product.ProductEntityMother;
 import com.techtest.decskill.infrastructure.persistence.product.JpaProductRepository;
 import com.techtest.decskill.infrastructure.persistence.product.ProductEntity;
-import org.assertj.core.util.Arrays;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
@@ -17,7 +16,6 @@ import org.springframework.test.context.junit.jupiter.SpringExtension;
 
 import java.time.LocalDateTime;
 import java.util.Comparator;
-import java.util.List;
 import java.util.stream.IntStream;
 
 import static org.assertj.core.api.Assertions.assertThat;
@@ -64,7 +62,7 @@ public class JpaPriceRepositoryIntegrationTest {
         LocalDateTime date = PrimitiveMother.getRandomLocalDateTime();
         int limit = PrimitiveMother.getRandomInt(1, 20);
         IntStream.of(limit).forEach(i -> {
-            jpaPriceRepository.saveAndFlush(PriceEntityMother.getRandom(brand.getId(), product.getId(), date));;
+            jpaPriceRepository.saveAndFlush(PriceEntityMother.getRandom(brand.getId(), product.getId(), date));
         });
         PriceEntity expectedPrice = jpaPriceRepository.findAll().stream().sorted(Comparator.comparing(PriceEntity::getPriority)).toList().get(0);
 

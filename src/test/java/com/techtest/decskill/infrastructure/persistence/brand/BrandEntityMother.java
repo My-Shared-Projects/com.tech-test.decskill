@@ -10,6 +10,7 @@ public class BrandEntityMother {
                 .isActive(PrimitiveMother.getRandomBoolean())
                 .build();
     }
+
     public static BrandEntity getRandomFromId(long brandId) {
         return BrandEntity.builder()
                 .id(brandId)
