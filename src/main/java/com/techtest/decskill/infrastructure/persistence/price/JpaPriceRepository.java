@@ -8,6 +8,6 @@ import java.time.LocalDateTime;
 
 @Repository
 public interface JpaPriceRepository extends JpaRepository<PriceEntity, Long> {
-    @Query("SELECT p FROM price p WHERE :date BETWEEN p.startDate AND p.endDate AND p.brand.id = :brandId AND p.product.id = :productId")
+    @Query("SELECT p FROM price p WHERE :date BETWEEN p.startDate AND p.endDate AND p.brand.id = :brandId AND p.product.id = :productId ORDER BY p.priority DESC LIMIT 1")
     PriceEntity findOneByBrandIdAndProductIdAndDate(Long brandId, Long productId, LocalDateTime date);
 }

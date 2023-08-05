@@ -30,6 +30,5 @@ public class PriceFinderController {
             return ResponseEntity.notFound().build();
         }
     }
-
 }
 
